@@ -188,46 +188,68 @@ package-archive-priorities '(("melpa-stable" . 1)))
 (add-to-list 'exec-path "/usr/local/bin")
 
 ;; theme
-(use-package zenburn-theme
-  :ensure t
-  :config (load-theme 'zenburn t))
+
+;; dakrone theme
+;; (package-install "dakrone-theme")
+;; (load-theme 'dakrone t)
+
+(load-theme 'material t)
+
+
+;; (use-package dakrone-theme
+;;   :ensure t
+;;   :config (load-theme 'dakrone t))
+
+
+;; (use-package zenburn-theme
+;;  :ensure t
+;;  :config (load-theme 'zenburn t))
 
 (defalias 'ar #'align-regexp)
 
 ;; highlight
 (global-hl-line-mode t)
-(set-face-background 'hl-line "#1794c1")
+(set-face-background 'hl-line "#585959")
 
 ;; flashes the cursor's line when you scroll
-(use-package beacon
-:ensure t
-:config
-(beacon-mode 1)
-; this color looks good for the zenburn theme but not for the one
-; I'm using for the videos
-(setq beacon-color "#666600")
-)
+;; (use-package beacon
+;; :ensure t
+;; :config
+;; (beacon-mode 1)
+;; ; this color looks good for the zenburn theme but not for the one
+;; ; I'm using for the videos
+;; (setq beacon-color "#666600")
+;; )
 
 (custom-set-faces
-  `(lazy-highlight ((t (:foreground "white" :background "SteelBlue")))))
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(aw-leading-char-face ((t (:inherit ace-jump-face-foreground :height 3.0 :foreground "#30ffdf"))))
+ '(lazy-highlight ((t (:foreground "white" :background "SteelBlue")))))
 
 
 ;; marked region color
-(set-face-attribute 'region nil :background "#666")
+(set-face-attribute 'region nil :background "#0087ff")
 
 
 ;(global-set-key (kbd "C-x C-g") 'dumb-jump-go)
 ;(global-set-key (kbd "C-x C-b") 'dumb-jump-back)
 
+
 (use-package dumb-jump
   :bind (("M-g o" . dumb-jump-go-other-window)
 	 ("M-g j" . dumb-jump-go)
+	 ;; ("M-g j" . dumb-jump-force-searcher)
 	 ("M-g b" . dumb-jump-back)
 	 ("M-g x" . dumb-jump-go-prefer-external)
 	 ("M-g z" . dumb-jump-go-prefer-external-other-window))
    :config (setq dumb-jump-selector 'ivy) ;; (setq dumb-jump-selector 'helm)
   :ensure)
 
+(setq dumb-jump-force-searcher 'ag)
+(setq dumb-jump-prefer-searcher 'ag)
 
 (progn
   ;; turn on highlight matching brackets when cursor is on one
@@ -244,4 +266,12 @@ package-archive-priorities '(("melpa-stable" . 1)))
 
 ;; for scala project;; https://github.com/jacktasia/dumb-jump#configuration
 ;; does not work!
-(setq dumb-jump-default-project "~/.sbt/0.13/staging/f42aec95b698116a995a/slider/")
+;; (setq dumb-jump-default-project "~/.sbt/0.13/staging/f42aec95b698116a995a/slider/")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    ("dakrone-theme" dakrone-theme zygospore ztree zenburn-theme which-key use-package try org-bullets material-theme jedi flycheck ensime elpy dumb-jump counsel color-theme beacon ace-window))))
