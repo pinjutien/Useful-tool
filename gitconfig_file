@@ -1,0 +1,50 @@
+# This is Git's per-user configuration file.
+# [user]
+# Please adapt and uncomment the following lines:
+#	name = Pin-Ju Tien
+#	email = ptien@mm-mac-7280.local
+
+[user]                                                                                    
+        name = Pin-Ju
+        email = pinju.tien@gmail.com
+
+# https://gist.github.com/iansheridan/870778/9e9d5590c89df6b127619ac76b46abcd922efb25     
+[color]                                                                                   
+
+        ui = true                                                                         
+
+[color "branch"]                                                                          
+
+        current = yellow reverse                                                          
+
+        local = yellow                                                                    
+
+        remote = green                                                                    
+
+[color "diff"]                                                                            
+
+       meta = yellow bold                                                                 
+
+       frag = magenta bold                                                                
+
+       old = red bold                                                                     
+
+       new = green bold                                                                   
+
+[color "status"]                                                                          
+
+       added = yellow                                                                     
+
+       changed = green                                                                    
+
+       untracked = cyan                                                                   
+
+       autocrlf = input  
+[core]
+	autocrlf = input
+
+
+[alias]
+	st = status
+	b = branch
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
